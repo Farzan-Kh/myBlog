@@ -1,0 +1,180 @@
+/* Ensure HTML and body take full height */
+/* Ensure the container stretches the full page height */
+.full-height-container {
+  min-height: 100vh;
+  /* border: 2px solid black; */
+  /* Add a border to the container */
+}
+
+#articles-section {
+  min-height: 85vh;
+}
+
+body {
+  background-color: #00042b;
+
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-size: large;
+  font-style: normal;
+}
+
+
+#root-container * {
+  color: white;
+}
+
+#navbar-col {
+  border-bottom: 3px solid #00053b;
+}
+
+#footer-text {
+  border-top: 2px solid #00053b;
+}
+
+/* Initial state: hidden input */
+.hidden-input {
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  padding-left: 0.5rem;
+  /* Set initial padding for the placeholder */
+  padding-right: 0.5rem;
+  border: none;
+  /* Optional: hide the border initially */
+}
+
+/* Expanded state for the input */
+.hidden-input.active {
+  width: 150px;
+  /* Adjust as needed */
+  opacity: 1;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  /* Optional: show border when expanded */
+}
+
+#search-button i {
+  color: white;
+}
+
+#search-input {
+  color: white;
+  background-color: #000649;
+  border: none;
+  width: 10vw;
+}
+
+#search-input:focus {
+  outline: none;
+  /* Remove default outline */
+  box-shadow: none;
+  width: 10vw;
+}
+
+#search-button {
+  background-color: transparent;
+  /* Adjust as desired */
+  border: none;
+}
+
+#search-button:focus {
+  box-shadow: 0 0 0 3px rgb(0, 0, 88);
+}
+
+/* #input-form {
+            margin-left: 17vw;
+        } */
+
+.post-thumbnail a {
+  font-size: x-large;
+}
+
+.post-thumbnail time {
+  font-size: small;
+}
+
+/* Initial hidden state */
+.hidden-input {
+  width: 0;
+  opacity: 0;
+  padding-left: 0.5rem;
+  /* Set initial padding for the placeholder */
+  padding-right: 0.5rem;
+  border: none;
+  transition: width 0.3s ease, opacity 0.3s ease, padding-left 0.3s ease, padding-right 0.3s ease;
+}
+
+/* Expanded state */
+.hidden-input.active {
+  width: 150px;
+  /* Adjust width as needed */
+  opacity: 1;
+  padding-left: 1rem;
+  /* Increase padding to make placeholder look nice */
+  padding-right: 1rem;
+}
+
+/* Smooth transition for the placeholder text */
+#search-input::placeholder {
+  transition: padding-left 0.3s ease;
+  /* Smooth transition for placeholder */
+}
+
+/* Custom background and text colors for the modal */
+.modal-content {
+  background-color: #010532;
+  /* Dark background color */
+  color: #ffffff;
+  /* Light font color */
+}
+
+/* Optional: Customize header and button colors */
+.modal-header {
+  background-color: #010532;
+  /* Darker header background */
+  color: #ffffff;
+  /* Header text color */
+  border: none;
+}
+
+.modal-footer {
+  background-color: #444444;
+  /* Darker footer background */
+  color: #ffffff;
+  /* Footer text color */
+}
+
+/* Customize close button color */
+.modal-header .btn-close {
+  filter: brightness(0) invert(1);
+  /* Inverts color for dark backgrounds */
+  opacity: 0.8;
+}
+
+.modal-header .btn-close:hover {
+  opacity: 1;
+}
+
+/* Style the primary button */
+.modal .btn-primary {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.modal .btn-primary:hover {
+  background-color: #004494;
+  border-color: #004494;
+}
+
+#notification {
+  position: fixed;
+  bottom: 60px;
+  left: 42%;
+  background-color: #0a0e4e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
