@@ -42,13 +42,18 @@ func timer(interval time.Duration, f func()) {
 }
 
 func init() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalln("Could not load .env vars")
+	}
+
 	debug = os.Getenv("DEBUG") == "TRUE"
 
 	logDir := "logs"
 	logFile := filepath.Join(logDir, "logs.txt")
 
 	// Create the directory if it doesn't exist
-	if err := os.MkdirAll(logDir, 0755); err != nil {
+	if err = os.MkdirAll(logDir, 0755); err != nil {
 		log.Fatal(err.Error())
 	}
 
@@ -62,11 +67,6 @@ func init() {
 
 	index = make(map[string]*Post)
 	unverified_emails = NewBiMap()
-
-	err = godotenv.Load()
-	if err != nil {
-		log.Fatalln("Could not load .env vars")
-	}
 
 	go timer(1*time.Hour, FetchPosts)
 

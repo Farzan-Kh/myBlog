@@ -1,0 +1,34 @@
+{
+    "data": [
+        {
+            "id": 2,
+            "documentId": "k0cckxn4k3p0w1ubrigff5zr",
+            "content": "Hi this is the <u>**First POSTTTTTTTTTTTTTTTTT!!!!!!!!!!!!**</u>",
+            "title": "1st Post",
+            "date": "2024-02-12T21:00:00.000Z",
+            "uuid": "cb3820c3-0924-4d4c-ad88-71868cf10d3b",
+            "createdAt": "2024-11-06T19:48:22.574Z",
+            "updatedAt": "2024-11-06T19:48:24.285Z",
+            "publishedAt": "2024-11-06T19:48:24.291Z"
+        },
+        {
+            "id": 4,
+            "documentId": "sf4yf0bdsaoo88cdoyneabra",
+            "content": "# Main title\n\nSome Random stuff!!!\n\n## inner Header\n## another Header",
+            "title": "Headerful doc",
+            "date": "2024-11-14T20:30:50.995Z",
+            "uuid": "757058f7-accc-47b8-b446-31066ca7666f",
+            "createdAt": "2024-11-15T06:51:44.045Z",
+            "updatedAt": "2024-11-15T06:52:18.406Z",
+            "publishedAt": "2024-11-15T06:52:18.411Z"
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 2
+        }
+    }
+}
