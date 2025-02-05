@@ -16,6 +16,7 @@ var templates = template.Must(template.ParseFiles("templates/about.html", "templ
 var (
 	infoLogger  *log.Logger
 	errorLogger *log.Logger
+	debug       bool
 )
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p any) {
@@ -41,6 +42,8 @@ func timer(interval time.Duration, f func()) {
 }
 
 func init() {
+	debug = os.Getenv("DEBUG") == "TRUE"
+
 	logDir := "logs"
 	logFile := filepath.Join(logDir, "logs.txt")
 
@@ -54,8 +57,8 @@ func init() {
 		log.Fatal(err.Error())
 	}
 
-	infoLogger = log.New(file, "INFO: ", log.Ldate|log.Lshortfile)
-	errorLogger = log.New(file, "ERROR: ", log.Ldate|log.Lshortfile)
+	infoLogger = log.New(file, "INFO: ", log.LUTC|log.Ltime|log.Ldate|log.Lshortfile)
+	errorLogger = log.New(file, "ERROR: ", log.LUTC|log.Ltime|log.Ldate|log.Lshortfile)
 
 	index = make(map[string]*Post)
 	unverified_emails = NewBiMap()
