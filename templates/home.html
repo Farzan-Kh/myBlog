@@ -1,25 +1,22 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Farzan's blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farzan's Blog</title>
 
     <link rel="icon" type="image/x-icon" href="../static/img/icon.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../static/style/homepage.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('rssLink').addEventListener('click', function (event) {
@@ -111,122 +108,65 @@
             });
         });
     </script>
+    
 </head>
 
 <body>
-    <!-- Newsletter Registration Modal -->
-    <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="newsletterModalLabel">Subscribe
-                        to our Newsletter</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="newsletterForm">
-                        <div class="mb-3">
-                            <label for="emailInput" class="form-label">Email
-                                address</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email"
-                                required>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand allura-regular" href="/home">Farzan Khalili</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a id="newsletterLink" class="nav-link" href="#">Newsletter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="rssLink" class="nav-link" href="/rss.xml">RSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+
+            <form id="input-form" class="d-flex">
+                <input id="search-input" class="form-control hidden-input" type="search" placeholder="Search">
+                <button id="search-button" class="btn" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Blog Articles -->
+    <div class="container mt-5">
+        <div id="articles-section" class="col-10 mx-auto">
+            {{range .}}
+            <div class="post-thumbnail row mx-1 my-4">
+                <div class="container">
+                    <div class="row p-0">
+                        <div>
+                            <h5><a href="/posts/{{.UUID}}">{{.Title}}</a></h5>
+                            <time class="text-secondary pt-0 mt-0">{{.Date}}</time>
                         </div>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
+                    </div>
                 </div>
             </div>
+            {{end}}
         </div>
     </div>
 
-    <div id="notification"></div>
-    <div id="root-container" class="container full-heigh t-container">
-        <nav class="navbar navbar-expand-lg m-2">
-            <div class="container">
-                <div class="column"></div>
-                <div class="column-6">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <a class="navbar-brand mt-0 me-4" href="/home" style="font-size: x-large;">Farzan.blog</a>
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-1">
-                            <li class="nav-item active  mx-1">
-                                <a id="newsletterLink" class="nav-link" href="">Newsletter</a>
-                            </li>
-                            <li class="nav-item active mx-1">
-                                <a id="rssLink" class="nav-link" href="/rss.xml">RSS</a>
-                            </li>
-                            <li class="nav-item active mx-1">
-                                <a class="nav-link" href="/about">About</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <form id="input-form" class="column-1">
-                    <input id="search-input" class="form-control-sm hidden-input" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button id="search-button" class="btn btn-outline-success" type="button">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
-                <div class="column"></div>
-            </div>
-        </nav>
-        <div class="row justify-content-md-center mt-5">
-            <div id="articles-section" class="col-10 m-3">
-                {{range .}}
-                <div class="post-thumbnail row mx-1 my-4">
-                    <div class="container">
-                        <div class="row p-0">
-                            <div class="col-10 px-0 mx-0">
-                                <h5 class="mb-0"><a href="/posts/{{.UUID}}">{{.Title}}</a></h5>
-                                <time class="text-secondary pt-0 mt-0">{{.Date}}</time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{end}}
-                <!-- <div class="post-thumbnail row mx-1 my-4">
-                    <div class="container">
-                        <div class="row p-0">
-                            <div class="col-10 px-0 mx-0">
-                                <h5 class="mb-0"><a>Session Fixation
-                                        Vulnerablity</a></h5>
-                                <time class="text-secondary pt-0 mt-0">2024-08-09</time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-thumbnail row mx-1 my-4">
-                    <div class="container">
-                        <div class="row p-0">
-                            <div class="col-10 px-0 mx-0">
-                                <h5 class="mb-0"><a>XSS on Ford</a></h5>
-                                <time class="text-secondary">2024-06-24</time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="post-thumbnail row mx-1  my-4">
-                    <div class="container">
-                        <div class="row p-0">
-                            <div class="col-10 px-0 mx-0">
-                                <h5 class="mb-0"><a>Interesting User
-                                        Enumeration</a></h5>
-                                <time class="text-secondary">2024-02-04</time>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+    <!-- Footer -->
+    <footer class="text-white text-center py-3 mt-5">
+        <p style="font-size: small;" class="mb-0">© 2024 Farzan Blog</p>
+    </footer>
 
-            </div>
-            <div class="row">
-                <div id="homepage-footer" class=" position-absolute bottom-0 start-0 end-0">
-                    <nav class="navbar">
-                        <div id="footer-text" class="mx-auto px-2">
-                            <p style="font-size: small;" class="text-secondary copy-right">©2024 Farzan
-                                Blog</p>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
 </body>
+
+</html>
