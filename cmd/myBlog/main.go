@@ -3,30 +3,18 @@ package main
 import (
 	"log"
 	"net/http"
-	"os"
-	"time"
+
+	"myBlog/internal/utils"
 
 	"github.com/joho/godotenv"
-
-	"myBlog/internal/config"
-	"myBlog/internal/handlers"
-	"myBlog/internal/utils"
 )
 
-var Debug bool
-
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalln("Could not load .env vars")
+	if err := godotenv.Load(); err != nil {
+		log.Println("Could not load .env vars")
 	}
-	config.Debug = os.Getenv("DEBUG") == "TRUE"
 
 	utils.InitLogger(utils.InfoLogger, utils.ErrorLogger)
-
-	go utils.Timer(1*time.Hour, handlers.FetchPosts) //Fetch posts every hour
-
-	//Notif any, un-notified post
 }
 
 func main() {
@@ -35,20 +23,18 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	http.HandleFunc("/home", handlers.HomeHandler)
-	http.HandleFunc("/{$}", http.RedirectHandler("/home", http.StatusFound).ServeHTTP)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "templates/home.html")
+	})
 
-	http.HandleFunc("/posts/", handlers.PostsHandler)
+	http.HandleFunc("/articles", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte(`[
+			{"date": "2025-01-10", "title": "WorstFit: Unveiling Hidden Transformers in Windows ANSI!"},
+			{"date": "2024-08-09", "title": "Confusion Attacks: Exploiting Hidden Semantic Ambiguity in Apache HTTP Server!"}
+		]`))
+	})
 
-	http.HandleFunc("/newsletterReg", handlers.HandleNewsletterReg)
-	http.HandleFunc("/verifyEmail/", handlers.HandleVerification)
-
-	http.HandleFunc("/rss.xml", handlers.RssHandler)
-
-	http.HandleFunc("/about/{$}", handlers.AboutHandler)
-
-	http.HandleFunc("/search/", handlers.SearchHandler)
-
-	utils.InfoLogger.Println("Starting the web server...")
+	utils.InfoLogger.Println("Server running on port 8000...")
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }

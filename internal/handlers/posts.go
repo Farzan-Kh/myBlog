@@ -31,7 +31,7 @@ func FetchPosts() {
 
 func FetchDummyPosts() {
 	utils.InfoLogger.Println("Fetching Dummy posts")
-	file, err := os.Open("dummyData/dummyPosts.json")
+	file, err := os.Open("dummyData\\dummyPosts.json")
 	if err != nil {
 		utils.ErrorLogger.Printf("Error opening dummyPosts.json: %v", err)
 	}
