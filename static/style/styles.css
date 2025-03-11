@@ -1,5 +1,6 @@
 body {
   font-family: "EmojiFont", "Menlo", "Meslo LG", monospace,Arial, sans-serif;
+  font-size: 0.8rem;
   margin: 0;
   padding: 0;
   background-color: #222;
@@ -7,21 +8,36 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   flex-shrink: 1;
 }
 
+.container-main {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+time {
+  margin-right: 25px;
+}
 
 .header{
-  padding-top: 2.5rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
 
+.header h1 {
+  margin-top: 0.6rem;
+  margin-left: 1rem;
+}
+
 .logo{
-  width:180px;
-  height:180px;
+  width:100px;
+  height:100px;
 } 
 
 header {
@@ -51,7 +67,12 @@ nav ul li a {
 }
 
 nav ul li:not(:last-child) {
-  border-right: 3px dashed rgb(116, 32, 32);
+  border-right: 3px dotted rgb(116, 32, 32);
+}
+
+nav ul li {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 
 nav ul li a:hover
@@ -69,18 +90,22 @@ nav ul li a:hover
 
 #articles{
   padding: 0;
-  margin-top: 6rem;
+  margin-top: 2rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   flex-shrink:1 ;
- 
+}
+
+#articles time{
+  font-size: 0.7rem;
 }
 
 #articles h2{
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   color: rgb(172, 46, 46);
-  font-size: 1.8rem;
+  font-size: 1rem;
 }
 
 #articles ul{
@@ -96,9 +121,10 @@ nav ul li a:hover
     flex-direction: row;
     justify-content: space-between;
     list-style-type: none;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     flex-wrap: nowrap;
     flex-shrink: 1;
+    align-items: center;
  }
 
 #articles ul li strong {
@@ -137,8 +163,8 @@ body{
   font-size: .9rem;
 }
 .logo{
-  width: 148px;
-  height: 148px;
+  width: 48px;
+  height: 48px;
 }
 .container-main{
   align-self: center;

@@ -5,41 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farzan Khalili</title>
     <link rel="stylesheet" href="../static/style/styles.css">
+
+    <script src="../static/script/rss.js"></script>
 </head>
 <body>
     <div class="container-main">
-    <div class="header">
-    <div class="logo">
-        <img src="../static/img/Security-amico.svg" alt="logo" >
-    </div>
-    <header>
-        <h1>Farzan Khalili</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#articles">Articles</a></li>
-                <li><a href="#talks">Talks</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
-    </header>
-</div>
-    <main>
-        <section id="home">
-            <h2>Welcome to Farzan's Website</h2>
-            <p>Security research, articles, and talks.</p>
-        </section>
+        <div id="notification"></div>
+        <div class="header">
+            <div class="logo">
+                <img src="../static/img/Security-amico.svg" alt="logo" >
+            </div>
+            <header>
+                <h1>Farzan Khalili</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#articles">Newsletter</a></li>
+                        <li><a id="rssLink" href="#talks">RSS</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <main>
+            <section id="home">
+                <h2>Welcome to Farzan's Website</h2>
+                <p>Hi, I am Orange, currently the Principal Security Researcher at DEVCORE, and the core member of CHROOT Security Group in Taiwan. I am a RCE enthusiast and mainly focus on Web and Application Security. My research has received several hacking awards and has been accepted by numerous security conferences. </p>
+            </section>
+            
+            <section id="articles">
+                <h2>Articles</h2>
+                <div>
+                    <ul id="article-list">
+                        {{range .}}
+                            <li>
+                                <time>{{.Date}}</time><a href="/posts/{{.UUID}}">{{.Title}}</a>
+                            </li>
+                        {{end}}
+                    </ul>
+                </div>
+            </section>
+        </main>
         
-        <section id="articles">
-            <h2>Articles</h2>
-            <div><ul id="article-list"></ul></div>
-        </section>
-    </main>
-    
-    <footer>
-        <p>Copyright &copy; Farzan Khalili</p>
-    </footer>
+        <footer>
+            <p>Copyright &copy; Farzan Khalili</p>
+        </footer>
     </div>
-    <script src="../static/script/script.js"></script>
 </body>
 </html>
