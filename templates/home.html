@@ -4,71 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farzan Khalili</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/Security-amico.svg">
     <link rel="stylesheet" href="../static/style/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    
+    <!-- Link to the external JavaScript file -->
     <script src="../static/script/rss.js"></script>
-    <script>
-         document.addEventListener('DOMContentLoaded', function () {
-            const searchInput = document.getElementById("searchBox");
-        const searchIcon = document.getElementById("searchIcon");
-        const clearIcon = document.getElementById("clearIcon");
-
-        // Toggle Search Input on Click
-        searchIcon.addEventListener("click", function() {
-            searchInput.classList.toggle("show");
-            if (searchInput.classList.contains("show")) {
-                searchInput.focus(); // Focus input when opened
-            }
-        });
-
-        // Show Clear Icon When Typing
-        searchInput.addEventListener("input", function() {
-            if (searchInput.value.length > 0) {
-                clearIcon.style.visibility = "visible";
-                clearIcon.style.opacity = "1";
-            } else {
-                clearIcon.style.visibility = "hidden";
-                clearIcon.style.opacity = "0";
-            }
-        });
-
-        // Clear Input When Clicking Cross Icon
-        clearIcon.addEventListener("click", function() {
-            searchInput.value = "";
-            clearIcon.style.visibility = "hidden";
-            clearIcon.style.opacity = "0";
-            searchInput.classList.toggle("show");
-            // searchInput.focus();
-        });
-    });
-    </script>
+    <script src="../static/script/main.js" defer></script>
+    
 </head>
 <body>
+     <!-- Newsletter Registration Modal -->
+     <div id="newsletterModal">
+        <div class="logo"><img src="../static/img/Security-amico.svg" alt=""></div>
+        <h5>Subscribe to our Newsletter</h5>
+        <form id="newsletterForm">
+            <div>
+                <label for="emailInput" class="form-label">Email address :</label>
+                <input type="email" class="form-control" id="emailInput" placeholder="Enter your email" required>
+            </div>
+            <button type="submit" class="btn">Subscribe</button>
+        </form>
+    </div>
     <div class="container-main">
+
+         
+
+        <!-- Notification for RSS link -->
         <div id="notification"></div>
         <div class="header">
             <div class="logo">
                 <img src="../static/img/Security-amico.svg" alt="logo" >
             </div>
             <header>
-                     <!-- Search Bar -->
-               <div class="search-container">
-                <input type="text" id="searchBox" class="search-input" placeholder="Search...">
-                <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i> 
-                <i class="fa-solid fa-xmark clear-icon" id="clearIcon"></i> 
-            </div>
+                   
                 <h1>Farzan Khalili</h1>
               
                 <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#articles">Newsletter</a></li>
-                        <li><a id="rssLink" href="#talks">RSS</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a   id="newsletterLink"  href="#articles">Newsletter</a></li>
+                        <li><a id="rssLink" href="#rss">RSS</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li>  <!-- Search Bar -->
+                            <div class="search-container">
+                             <i class="fa-solid fa-magnifying-glass search-icon" id="searchIcon"></i> 
+                             <input type="text" id="searchBox" class="search-input" placeholder="Search...">
+                             <i class="fa-solid fa-xmark clear-icon" id="clearIcon"></i> 
+                         </div> </li>
                        
                     </ul>
 

@@ -1,92 +1,147 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Farzan's blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farzan's Blog - About Me</title>
 
-    <link rel="icon" type="image/x-icon" href="../static/img/icon.png">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="icon" type="image/x-icon" href="../static/img/Security-amico.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-        rel="stylesheet">
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-        crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
 
     <style>
+        /* General Styles */
         body {
             background-color: #202021;
             font-family: "Lora", serif;
             font-size: large;
             font-style: normal;
             color: rgb(239, 245, 215);
-            margin: 0px;
-        }
-        h1{
-            color: rgb(232, 244, 185);
-        }
-        i {
-            font-size: 2vw;
-        }
-        a {
-            color: rgb(182, 182, 182);
+            margin: 0;
+            padding: 0;
         }
 
-        a:hover{
-            color: #b5bbf1;
+        h1 {
+            color: rgb(116, 32, 32);
+        }
+
+        h3 {
+           font-weight: 700;
+           margin-top: 3rem;
+           font-size: 1rem;
+
+        }
+        p{
+            color: #e2e2e2;
+        }
+
+        a {
+            color: rgb(182, 182, 182);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color:rgb(116, 32, 32);
+        }
+
+        i {
+            font-size: 1.5rem;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 3rem;
+            left: 5rem;
+            font-size: 2rem;
+        }
+        
+
+        /* About Section */
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 20rem;
+            color: #e2e2e2;
+        }
+
+        .about-container h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-container p {
+            margin: 1rem 0;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            margin-top: .4rem;
+        }
+
+        .social-links a {
+            margin: 0 1rem;
+            font-size: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-container {
+                padding: 1rem 2rem;
+            }
+
+            .about-container h1 {
+                font-size: 1..5rem;
+            }
+           
+            .about-container h3 {
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+            .about-container p {
+                font-size: .8rem;
+            }
+
+            .social-links a {
+                font-size: 3rem;
+                margin: 0 0.5rem;
+            }
+
+            .back-button {
+                font-size: 2rem;
+                left: 2rem;
+                top: 5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid text-center my-5">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-1 mt-5 ps-0 ms-0">
-                <span class="mx-2 py-5"><a href=".." style="text-decoration: none; font-size: 34px;">&#8592;</a></span>
-            </div>
-            <div class="col-7">
-                <div class="mt-5"><h1>About Me...</h1></div>
-                <p class="my-5 px-5">
-                    I'm Farzan Khalili, final year CS student, interested in almost
-                    every field of Computers, specially Neural Networks and
-                    Security.<br>
-                    I currently work on web and mobile applications security and very
-                    much willing to learn about Networks and OS Security too.<br><br>
-                    Here I share my thoughts, experiences, findings, understaings of
-                    interesting subjects, and projects on web vulnerabilities, secure
-                    coding, and more; hoping to make security a little more accessible
-                    and interesting for everyone in the field!
-                </p>
-                <p>
-                    <br>
-                    YOU CAN FOLLOW ME ON<br><br>
-                    <span class="mx-2 py-5"><a target="_blank"
-                            href="https://www.github.com/Farzan-Kh"><i
-                                class="fab fa-github"></i></a></span>
-                    <span class="mx-2 py-5"><a target="_blank"
-                            href="https://www.twitter.com/__farzann"><i
-                                class="fab fa-twitter"></i></a></span>
-                    <span class="mx-2 py-5"><a target="_blank"
-                            href="https://www.linkedin.com/in/farzan-khalili-b62844199/"><i
-                                class="fab fa-linkedin"></i></a></span>
-                </p>
-            </div>
-            <div class="col-3"></div>
+    <!-- Back Button -->
+    <a href=".." class="back-button">&#8592;</a>
+
+    <!-- About Section -->
+    <div class="about-container">
+        <h1>About Me...</h1>
+        <p>
+            I'm Farzan Khalili, final year CS student, interested in almost every field of Computers, especially Neural Networks and Security.<br>
+            I currently work on web and mobile applications security and am very much willing to learn about Networks and OS Security too.<br><br>
+            Here I share my thoughts, experiences, findings, understandings of interesting subjects, and projects on web vulnerabilities, secure coding, and more; hoping to make security a little more accessible and interesting for everyone in the field!
+        </p>
+        <h3>
+            YOU CAN FOLLOW ME ON
+        </h3>
+        <div class="social-links">
+            <a target="_blank" href="https://www.github.com/Farzan-Kh"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://www.twitter.com/__farzann"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/farzan-khalili-b62844199/"><i class="fab fa-linkedin"></i></a>
         </div>
     </div>
 </body>
+</html>

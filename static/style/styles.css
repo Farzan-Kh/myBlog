@@ -28,11 +28,13 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
   min-height: 100vh;
-  z-index: 9;
+  flex-shrink: 1;
+  z-index: 1;
+  
 }
 
 .header{
-  flex-grow: 1;
+  flex-grow: 3;
   padding-top: 3rem;
   display: flex;
   flex-direction: row;
@@ -42,17 +44,17 @@ body {
 
 .logo{
   padding: 0;
-  width:120px;
+  width:20%;
   height:120px;
   align-self:center;
-  flex-grow: 1;
+  flex-grow: 2;
 } 
 
 .logo img{
   width: 100%;
   height: 100%;
   object-fit:fill;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 
 }
 
@@ -61,18 +63,23 @@ header {
   display: flex;
   flex-direction: column;
   align-items:flex-start;
-  flex-grow: 2;
+ 
   
 }
+
+
 
 
 nav ul{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-content: space-between;
+  justify-content:flex-start;
+  align-items: center;
   list-style: none;
   padding: 0;
+  text-align: center;
+
+  
 }
 
 
@@ -80,9 +87,15 @@ nav ul li a {
   color: rgb(235, 235, 235);
   text-decoration: none;
   padding: 0 1rem;
+  flex-grow: 1;
  
 }
-
+nav ul li:first-child a{
+  padding-left: 0;
+}
+nav ul li div.search-container{
+  padding: 0 .6rem;
+}
 nav ul li:not(:last-child) {
   border-right: 3px dashed rgb(116, 32, 32);
 }
@@ -92,64 +105,190 @@ nav ul li a:hover
  text-decoration: 2px underline rgb(116, 32, 32);
  text-underline-offset: 6px;
 }
+/* Notification styles */
+#notification {
+  width: 46%;
+  text-align: center;
+  position: fixed;
+  top:5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:rgb(116, 32, 32);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+}
 
-/* search bar  */
+
+ /* Blur effect for the background */
+ .container-main.blur {
+  filter: blur(9px);
+  pointer-events: none; /* Prevent interactions with background */
+}
+
+
+ /* Newsletter Styling */
+
+ #newsletterModal {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  font-size: 1rem;
+  position: fixed;
+  width: 30%;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:#222222c9;
+  color: #ebebeb;
+  padding: 1rem 2rem;
+  border: 1px solid #222222c6;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(67, 19, 19, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1001;
+}
+
+#newsletterModal h5 {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  text-decoration:1px solid underline #e5e5e5;
+  text-underline-offset: 15px;
+}
+
+#newsletterModal form {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: .6rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#newsletterModal form label{
+  margin-top: 1rem;
+  font-size: .8rem;
+}
+
+#newsletterModal form input {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: .7rem;
+  
+}
+
+#newsletterModal form button {
+  padding: 0.6rem 1rem;
+  margin: 0.5rem;
+  border: 1px solid #222;
+  border-radius: 5px;
+  outline: none;
+  font-size: .8rem;
+  background-color: #5c5c5c;
+  color: #ebebeb;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#newsletterModal form button:hover {
+  background-color: rgb(116, 32, 32);
+}
+
+#newsletterModal form button:active {
+  background-color: #5c5c5c;
+}
+#newsletterModal form p {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#newsletterModal form h4{
+  color: rgb(116, 32, 32);
+  font-size: 1.2rem;
+}
+#newsletterModal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* search-container styling */
 
 .search-container {
-  width: max-content;
-  align-self:flex-end;
-  justify-self:end;
-  position: relative;
-  flex-grow: 2;
+  
+  width: 160px;
   display: flex;
   flex-direction: row;
- 
+  justify-content: start;
+  flex-grow: 2;
 }
 
 .search-input {
- 
-  margin-right: 7px;
-  width: 100px;
-  padding: 8px;
+  flex-grow: 2;
+  margin-left: 7px;
+  width: 0;
+  opacity: 0;
+  padding: 0 10px;
   border: none;
   border-radius: 5px;
-  display: none; 
-  flex-grow: 2;
+  visibility: hidden;
+  outline: none;
+  transition: width 0.4s ease, opacity 0.3s ease;
 }
 
 .search-icon {
+  
+  text-align: center;
   background-color:rgb(116, 32, 32);
   cursor: pointer;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6px;
   border-radius: 6px;
-  flex-grow: 1;
+ flex-grow: 1;
+  border:1px solid rgb(116, 32, 32);
+  transition: transform 0.3s ease-in-out;
 }
- 
+
 .search-icon:hover {
   color: rgb(116, 32, 32);
   border:1px solid rgb(116, 32, 32);
   background-color: #e2e2e2;
-  border-radius: 5px;
+  
 }
 
 .clear-icon {
-  position: absolute;
-  right:31% ;
-  top: 50%;
+  align-self: center;
+  position: relative;
+  right: 15px;
   color: #222;
-  transform: translateY(-50%);
-  visibility: hidden;  /* Fixed: Initially hidden */
+  visibility: hidden; 
   opacity: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   cursor: pointer;
- 
+ background:white;
 }
 
+.clear-icon:hover{
+  color: rgb(116, 32, 32); ;
+}
 .search-input.show {
-  display: inline;
+ 
+  width: 120px;
+  opacity: 1;
+  visibility:visible;
 }
 
 .search-container input:focus + .clear-icon {
@@ -157,6 +296,7 @@ nav ul li a:hover
 }
 
  main {
+  padding: 2rem;
   margin-top: 1.5rem;
   flex-grow: 2;
   display: flex;
@@ -247,30 +387,69 @@ body{
   font-size: .9rem;
 }
 .logo{
-  width: max-content;
+  width: 30%;
   margin: 4px;
   height: 50px;
   width: 50px;
   align-self:center;
 }
 .container-main{
-  padding: 0 .4rem;
+  padding: 0 2rem;
   min-height: 100vh;
+  
 
 }
 
 .header{
-  padding-top: 1rem;
+  width: 100%;
+  padding:.6rem .3rem;
   max-width:100%;
 }
 header{
+  margin: 0 .3rem;
   font-size: .8rem;
 }
 
-.search-input{
-  width:90px;
+nav ul{
+  flex-wrap: wrap;
+  
+
+}
+
+#newsletterModal{
+  width: 40%;
+}
+
+#newsletterModal h5{
+  font-size: .72rem;
+}
+#newsletterModal form{
+  font-size: .5rem;
+}
+#newsletterModal form label{
+  font-size: .6rem;
+}
+#newsletterModal form button:hover{
+  background-color: rgb(116, 32, 32);
+}
+.search-container{
+  width: 80px;
+  margin: 1rem 0;
+  font-size: .6;
+  
+}
+
+nav ul li div.search-container {
+  padding-left: 8px;
+}
+
+.search-input.show{
+  width:70px;
+
+  
 }
 main{
+  margin-top: 1rem;
   font-size: .7rem;
   padding: 0 2rem;
 }
