@@ -88,6 +88,9 @@ This is a personal blog project built with Go, designed to showcase posts, artic
    go run cmd/myBlog/main.go
    ```
 
+5. Replace the default icon:
+   Replace the file at `static/img/icon.svg` with your own icon to ensure it appears in the page title and navbar.
+
 ## Usage
 
 - **Home Page**: Accessible at home, displays a list of blog posts.
